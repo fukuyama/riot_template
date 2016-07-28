@@ -1,0 +1,41 @@
+{
+  "name": "riot_template",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fukuyama/riot_template.git"
+  },
+  "keywords": [
+    "riot.js",
+    "jade",
+    "CoffeeScript"
+  ],
+  "author": "Yoshihito Fukuyama",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fukuyama/riot_template/issues"
+  },
+  "homepage": "https://github.com/fukuyama/riot_template#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "coffee-script": "^1.10.0",
+    "gulp": "^3.9.1",
+    "gulp-riot": "^0.5.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1",
+    "pug": "^0.1.0",
+    "require-dir": "^0.3.0",
+    "rimraf": "^2.5.4",
+    "riot": "^2.5.0",
+    "riotify": "^1.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
