@@ -13,9 +13,16 @@ gulp.task 'test', [
 ]
 
 gulp.task 'watch', [
+  'riot:watch'
+  'webserver:watch'
+]
+
+gulp.task 'webserver', [
+  'webserver:run'
 ]
 
 gulp.task 'default', [
   'build'
+  'watch'
   'webserver'
 ]

@@ -1,5 +1,5 @@
-var riot = require('riot');
+import riot from 'riot'
 
-require('./sample/sample.tag');
+import './sample/sample.tag.jade'
 
-riot.mount('*');
+riot.mount('*')

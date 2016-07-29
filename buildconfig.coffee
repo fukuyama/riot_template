@@ -3,7 +3,8 @@ destDir = 'dest/'
 
 config = {
   riot :
-    files      : './src/main/riot/main.js'
+    entry      : './src/main/riot/main.js'
+    watchFiles : './src/main/riot/**/*'
     destDir    : destDir + 'public/js/'
     outputFile : 'bundle.js'
 

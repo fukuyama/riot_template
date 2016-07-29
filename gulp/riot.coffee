@@ -1,32 +1,47 @@
-config     = require '../buildconfig.coffee'
-gulp       = require 'gulp'
-gutil      = require 'gulp-util'
-uglify     = require 'gulp-uglify'
-sourcemaps = require 'gulp-sourcemaps'
+config      = require '../buildconfig.coffee'
 
-browserify = require 'browserify'
-riotify    = require 'riotify'
-source     = require 'vinyl-source-stream'
-buffer     = require 'vinyl-buffer'
+gulp        = require 'gulp'
+gutil       = require 'gulp-util'
+guglify     = require 'gulp-uglify'
+gsourcemaps = require 'gulp-sourcemaps'
+
+browserify  = require 'browserify'
+riotify     = require 'riotify'
+babelify    = require 'babelify'
+source      = require 'vinyl-source-stream'
+buffer      = require 'vinyl-buffer'
 
 gulp.task 'riot:build', =>
   {
-    files
+    entry
     destDir
     outputFile
   } = config.riot
-  browserify files, { extensions: ['.coffee', '.js', '.jade'], debug : true }
-    .transform riotify, { template : 'pug', ext : '.jade', type : 'coffeescript' }
+  handleError = (e) =>
+    gutil.log(e)
+    @emit 'end'
+  browserify entry,
+      extensions : ['.coffee', '.js', '.jade']
+      debug      : true
+    .transform riotify,
+      template   : 'pug'
+      ext        : '.jade'
+      type       : 'coffeescript'
+      expr       : true
+    .transform babelify,
+      presets    : ['es2015-riot']
     .bundle()
-    .on 'error', (e) ->
-      gutil.log(e)
-      @emit('end')
+    .on 'error', handleError
     .pipe source(outputFile)
     .pipe buffer()
-    .pipe sourcemaps.init { loadMaps : true }
-    .pipe uglify()
-    .on 'error', (e) ->
-      gutil.log(e.message)
-      @emit('end')
-    .pipe sourcemaps.write('.')
+    .pipe gsourcemaps.init { loadMaps : true }
+    .pipe guglify()
+    .on 'error', handleError
+    .pipe gsourcemaps.write('.')
     .pipe gulp.dest(destDir)
+
+gulp.task 'riot:watch', =>
+  {
+    watchFiles
+  } = config.riot
+  gulp.watch watchFiles, ['riot:build']
