@@ -6,6 +6,7 @@ guglify     = require 'gulp-uglify'
 gsourcemaps = require 'gulp-sourcemaps'
 
 browserify  = require 'browserify'
+coffeeify   = require 'coffeeify'
 riotify     = require 'riotify'
 babelify    = require 'babelify'
 source      = require 'vinyl-source-stream'
@@ -17,17 +18,20 @@ gulp.task 'riot:build', =>
     destDir
     outputFile
   } = config.riot
-  handleError = (e) =>
+  handleError = (e) ->
     gutil.log(e)
     @emit 'end'
   browserify entry,
       extensions : ['.coffee', '.js', '.jade']
       debug      : true
+    .transform coffeeify,
+      bare       : true
+      header     : false
     .transform riotify,
       template   : 'pug'
       ext        : '.jade'
-      type       : 'coffeescript'
-      expr       : true
+      type       : 'coffee'
+      expr       : false
     .transform babelify,
       presets    : ['es2015-riot']
     .bundle()

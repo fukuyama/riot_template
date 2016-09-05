@@ -4,7 +4,7 @@ gulp   = require 'gulp'
 
 webserver = require 'gulp-webserver'
 
-gulp.task 'webserver:run', ['build'], =>
+gulp.task 'webserver', ['build'], =>
   {
     publicDir
   } = config.webserver
