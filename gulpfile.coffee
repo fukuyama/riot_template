@@ -10,6 +10,7 @@ gulp.task 'build', [
 ]
 
 gulp.task 'test', [
+  'build'
 ]
 
 gulp.task 'watch', [
@@ -18,7 +19,6 @@ gulp.task 'watch', [
 ]
 
 gulp.task 'default', [
-  'build'
   'watch'
   'webserver'
 ]

@@ -1,21 +1,24 @@
 {
   "name": "riot_template",
-  "version": "1.0.0",
-  "description": "0.0.1",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.1",
+  "description": "riot template",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fukuyama/riot_template.git"
   },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "test": "gulp test",
+    "clean": "gulp clean"
+  },
   "keywords": [
     "riot.js",
     "jade",
-    "CoffeeScript"
+    "coffee-script",
+    "less"
   ],
-  "author": "Yoshihito Fukuyama",
+  "author": "Yoshihito Fukuyama (https://ja.gravatar.com/yf37)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fukuyama/riot_template/issues"
@@ -25,20 +28,25 @@
     "babel-preset-es2015-riot": "^1.1.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "coffee-script": "^1.10.0",
-    "coffeeify": "^2.0.1",
+    "coffee-script": "^1.11.1",
+    "graceful-fs": "^4.1.5",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-scp2": "^0.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-template": "^4.0.0",
     "gulp-uglify": "^1.5.4",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
-    "pug": "2.0.0-alpha6",
-    "pug-loader": "^1.0.2",
+    "less": "^2.7.1",
+    "lodash": "^4.14.1",
+    "minimatch": "^3.0.2",
+    "pug": "2.0.0-beta6",
+    "pug-loader": "^2.3.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.5.4",
-    "riot": "^2.5.0",
+    "riot": "^2.6.4",
     "riotify": "^1.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

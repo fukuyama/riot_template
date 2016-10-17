@@ -1,3 +1,5 @@
-@str = 'ほえほえ'
+# sample.coffee
+@str = 'test'
 
-@fn = (param) -> 'call function ' + param
+@on 'update', (e) ->
+  console.log 'sample',@opts,e

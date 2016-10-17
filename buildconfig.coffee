@@ -1,18 +1,24 @@
 
-destDir = 'dest/'
-
-config = {
+config =
   riot :
     entry      : './src/main/riot/main.js'
-    watchFiles : './src/main/riot/**/*'
-    destDir    : destDir + 'public/js/'
+    watchFiles : './src/main/riot/**'
+    destDir    : './dest/public/js/'
     outputFile : 'bundle.js'
 
   webserver :
-    files     : './src/main/public/**/*'
-    publicDir : destDir + 'public/'
+    files     : './src/main/public/**'
+    publicDir : './dest/public/'
 
-  cleanDir : destDir
-}
+  release :
+    files : [
+      './dest/public/js/**'
+    ]
+    options :
+      base : './dest/public/'
+    destDir : './dest/release/'
+
+  clean :
+    dir : './dest/'
 
 module.exports = config

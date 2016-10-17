@@ -1,4 +1,4 @@
 Riot.js template
 ----------------
 
-Riot.js + CoffeScript + Jade
+Riot.js + CoffeScript + less + Jade

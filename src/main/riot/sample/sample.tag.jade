@@ -1,6 +1,10 @@
 sample
-  div name = { opts.name }
-  div str  = { str }
-  div fn   = { fn('foo') }
+  div sample
+    div.name name={opts.name}
+    div str={str}
 
-  script(src='./sample.coffee')
+  style(scoped,type='less')
+    include sample.less
+
+  script(type='coffee')
+    include sample.coffee
