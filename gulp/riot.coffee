@@ -5,6 +5,7 @@ gutil       = require 'gulp-util'
 guglify     = require 'gulp-uglify'
 gsourcemaps = require 'gulp-sourcemaps'
 
+coffeeify   = require 'coffeeify'
 browserify  = require 'browserify'
 riotify     = require 'riotify'
 babelify    = require 'babelify'
@@ -21,8 +22,11 @@ gulp.task 'riot:build', =>
     gutil.log(e)
     @emit 'end'
   browserify entry,
-      extensions : ['.coffee', '.js', '.jade', '.css', '.less']
+      extensions : ['.coffee', '.js', '.pug', '.jade', '.css', '.less']
       debug      : true
+    .transform coffeeify,
+      bare       : true
+      header     : false
     .transform riotify,
       template   : 'pug'
       ext        : '.jade'
