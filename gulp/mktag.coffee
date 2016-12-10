@@ -3,13 +3,13 @@ template  = require 'gulp-template'
 rename    = require 'gulp-rename'
 
 gulp.task 'mktag', (cb) =>
-  i = process.argv.indexOf '-name'
+  i = process.argv.indexOf '--name'
   if i < 0
-    cb new Error('-name tag_name not found')
+    cb new Error('--name tag_name not found')
     return
   name = process.argv[i + 1]
   unless name
-    cb new Error('-name tag_name not found')
+    cb new Error('--name tag_name not found')
     return
   gulp.src('src/template/*')
     .pipe template
