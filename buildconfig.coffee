@@ -1,7 +1,7 @@
 
 config =
   riot :
-    entry      : './src/main/riot/main.js'
+    entry      : './src/main/riot/main.coffee'
     watchFiles : './src/main/riot/**'
     destDir    : './dest/public/js/'
     outputFile : 'bundle.js'

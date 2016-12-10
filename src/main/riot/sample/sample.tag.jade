@@ -1,10 +1,13 @@
 sample
   div sample
-  div.name name={ opts.name }
-    | str={ str }
-    | test
+    | Test
+    div.name name={ opts.name }
+    div.str str={ str }
+    div.content content=<yield/>
 
-  style(scoped,type='less')
+  input(ref='inputText',onkeyup='{ onInput }',value='{ str }')
+
+  style(type='less')
     include sample.less
 
   script(type='coffee')
