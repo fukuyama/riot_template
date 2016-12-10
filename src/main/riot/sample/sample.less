@@ -1,7 +1,21 @@
 // sample
 :scope {
   display : block;
-  >.name {
-    color : blue;
+  font-size : 20px;
+  >div {
+    >.name {
+      color : blue;
+    }
+    >.str {
+      color : red;
+    }
+    >.content {
+      color : green;
+    }
+    >div {
+      &:last-child {
+        border-bottom : 1px solid #000;
+      }
+    }
   }
 }
